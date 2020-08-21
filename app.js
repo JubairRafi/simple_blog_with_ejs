@@ -35,6 +35,10 @@ app.get("/compose",(req,res)=>{
   res.render("compose");
 });
 
+app.get("/posts/:postName",(req,res)=>{
+  console.log(req.params.postName);
+});
+
 app.post("/compose",(req,res)=>{
   let title = req.body.postTitle;
   let postbody = req.body.postBody;
