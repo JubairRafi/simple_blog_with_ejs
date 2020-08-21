@@ -41,13 +41,15 @@ app.get("/posts/:postName",(req,res)=>{
   posts.forEach((post)=>{
     const storedTitle = _.lowerCase(post.title);
     if (storedTitle===requestedTitle) {
-      console.log("match found");
-    }else{
-      console.log("not match found");
+
+      res.render("post", {separateTitle:post.title,separateContent:post.content});
+
     }
   });
 
+
 });
+
 
 app.post("/compose",(req,res)=>{
   let title = req.body.postTitle;
